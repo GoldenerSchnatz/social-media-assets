@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 60" preserveAspectRatio="none">
+  <defs>
+    <filter id="r" x="-5%" y="-40%" width="110%" height="180%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035 0.55" numOctaves="3" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="16" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  <g filter="url(#r)" fill="#FF017B">
+    <path d="M10 34 C 90 18, 210 14, 330 18 S 540 22, 592 16 L 590 40 C 500 50, 360 46, 240 48 S 70 54, 8 50 Z"/>
+    <path d="M40 22 C 160 12, 300 10, 470 12 L 468 20 C 320 18, 180 20, 44 28 Z" opacity=".75"/>
+  </g>
+</svg>

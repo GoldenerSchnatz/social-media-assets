@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Karussell-Vorlage Stefan Schnatz</title>
+<style>
+@font-face{font-family:"Instrument Sans";font-weight:500;src:url("node_modules/@fontsource/instrument-sans/files/instrument-sans-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:600;src:url("node_modules/@fontsource/instrument-sans/files/instrument-sans-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-weight:400;src:url("node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-weight:500;src:url("node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-weight:600;src:url("node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2") format("woff2")}
+:root{--navy:#081428;--surface:#14233D;--white:#fff;--magenta:#FF017B;--aqua:#3CC8D0;--cobalt:#2A2DC8;--mist:#F3F5F8;--stone:#5E6779}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1350px;overflow:hidden;background:var(--navy)}
+.slide{position:relative;width:1080px;height:1350px;padding:96px 88px 0;display:none;flex-direction:column;background:var(--navy);color:var(--white);font-family:"Inter",sans-serif;isolation:isolate}
+.slide.on{display:flex}
+.body{flex:1;display:flex;flex-direction:column;padding-bottom:40px}
+.label{font:600 22px/1 "Inter";letter-spacing:.08em;text-transform:uppercase;opacity:.62;margin-bottom:44px}
+h1{font:600 128px/1.02 "Instrument Sans";letter-spacing:-.02em}
+h2{font:600 84px/1.06 "Instrument Sans";letter-spacing:-.02em}
+p.lead{font:500 40px/1.38 "Inter";opacity:.88;margin-top:48px;max-width:820px}
+.hint{font:500 28px/1 "Inter";opacity:.62}
+.kpi{font:600 380px/.9 "Instrument Sans";letter-spacing:-.04em;color:var(--magenta)}
+.quote{font:600 76px/1.14 "Instrument Sans";letter-spacing:-.02em;text-align:center}
+
+/* Pinselstrich in Industrial Magenta unter markierten Wörtern */
+.mark{position:relative;white-space:nowrap;z-index:0}
+.mark::after{content:"";position:absolute;left:-3%;right:-3%;bottom:-.02em;height:.32em;z-index:-1;
+ background:url("pinsel.svg") no-repeat center/100% 100%}
+
+/* Fußzeile: auf jeder Slide identisch */
+.foot{height:118px;border-top:2px solid rgba(255,255,255,.20);display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.foot img{height:30px;display:block}
+.foot .count{justify-self:end;font:500 24px/1 "Inter";opacity:.62;font-variant-numeric:tabular-nums}
+.foot .left{font:500 24px/1 "Inter";opacity:.62}
+
+/* Beleg-Bild: rechtwinklig laut Brand Book */
+.proof{flex:1;margin-top:48px;background:var(--surface) center/cover no-repeat;min-height:0}
+
+/* Variante B: echtes Foto im Hintergrund, Text als Overlay */
+.photo{background:var(--navy)}
+.photo .bg{position:absolute;inset:0;background:center/cover no-repeat;z-index:-2}
+.photo .shade{position:absolute;inset:0;z-index:-1}
+.photo.bottom .shade{background:linear-gradient(180deg,rgba(8,20,40,.10) 0%,rgba(8,20,40,.30) 38%,rgba(8,20,40,.90) 72%,rgba(8,20,40,.97) 100%)}
+.photo.full .shade{background:rgba(8,20,40,.78)}
+.photo .foot{border-top-color:rgba(255,255,255,.28)}
+
+/* Helle Kachel als Pattern Interrupt */
+.light{background:var(--white);color:var(--navy)}
+.light .foot{border-top-color:rgba(8,20,40,.20)}
+.end{justify-content:flex-end}
+.mid{justify-content:center}
+.ctr{align-items:center;text-align:center}
+
+/* Feste Starthöhe: Überschriften beginnen auf jeder Text-Slide auf derselben Höhe */
+.top{justify-content:flex-start;padding-top:150px}
+.top>:first-child:not(.label){margin-top:66px}
+</style>
+</head>
+<body>
+
+<!-- A1 Einstieg -->
+<section class="slide" data-n="1">
+  <div class="body end">
+    <h1>Systeme schaffen <span class="mark">Freiheit.</span></h1>
+    <p class="hint" style="margin-top:56px">Wisch weiter</p>
+  </div>
+  <footer class="foot"><span class="left"></span><img src="logo-weiss.png" alt="Schnatz"><span class="count">1/8</span></footer>
+</section>
+
+<!-- A2 Gedanke -->
+<section class="slide" data-n="2">
+  <div class="body">
+    <div class="label">Gedanke</div>
+    <h2>Ein Gedanke pro Slide.</h2>
+    <p class="lead">Hier steht der Gedanke in höchstens zwei kurzen Sätzen. Mehr passt nicht auf eine Slide.</p>
+  </div>
+  <footer class="foot"><span class="left"></span><img src="logo-weiss.png" alt="Schnatz"><span class="count">2/8</span></footer>
+</section>
+
+<!-- A3 Beleg -->
+<section class="slide" data-n="3">
+  <div class="body">
+    <div class="label">Beleg</div>
+    <h2>Der Beleg trägt die Slide.</h2>
+    <div class="proof" style="background-image:url('foto_s.jpg')"></div>
+  </div>
+  <footer class="foot"><span class="left"></span><img src="logo-weiss.png" alt="Schnatz"><span class="count">3/8</span></footer>
+</section>
+
+<!-- A4 Zahl -->
+<section class="slide" data-n="4">
+  <div class="body top">
+    <div class="kpi">x10</div>
+    <p class="lead" style="margin-top:36px">Platzhalter für eine belegte Zahl aus einem freigegebenen Kundenfall.</p>
+  </div>
+  <footer class="foot"><span class="left"></span><img src="logo-weiss.png" alt="Schnatz"><span class="count">4/8</span></footer>
+</section>
+
+<!-- A5 Verdichtung -->
+<section class="slide" data-n="5">
+  <div class="body top ctr">
+    <div class="quote">»Das Leben beginnt nicht nach dem nächsten <span class="mark">Umsatzziel.</span>«</div>
+    <p class="hint" style="margin-top:72px">Speichern für später</p>
+  </div>
+  <footer class="foot"><span class="left"></span><img src="logo-weiss.png" alt="Schnatz"><span class="count">5/8</span></footer>
+</section>
+
+<!-- B1 Foto-Einstieg -->
+<section class="slide photo bottom" data-n="6">
+  <div class="bg" style="background-image:url('foto_s.jpg')"></div><div class="shade"></div>
+  <div class="body end">
+    <h1 style="font-size:112px">Unternehmen sind <span class="mark">Werkzeuge</span> zur Lebens­gestaltung.</h1>
+    <p class="hint" style="margin-top:48px;opacity:.8">Wisch weiter</p>
+  </div>
+  <footer class="foot"><span class="left"></span><img src="logo-weiss.png" alt="Schnatz"><span class="count">6/8</span></footer>
+</section>
+
+<!-- B2 Foto-Gedanke -->
+<section class="slide photo full" data-n="7">
+  <div class="bg" style="background-image:url('foto_s.jpg')"></div><div class="shade"></div>
+  <div class="body">
+    <div class="label" style="opacity:.8">Gedanke</div>
+    <h2>Text liegt als Overlay auf dem echten Foto.</h2>
+    <p class="lead">Das Foto wird abgedunkelt, damit die Schrift auf jedem Motiv lesbar bleibt.</p>
+  </div>
+  <footer class="foot"><span class="left"></span><img src="logo-weiss.png" alt="Schnatz"><span class="count">7/8</span></footer>
+</section>
+
+<!-- C1 Helle Kachel -->
+<section class="slide light" data-n="8">
+  <div class="body top">
+    <div class="label">Pattern Interrupt</div>
+    <h2>Hell <span class="mark">unterbricht</span> das Raster.</h2>
+    <p class="lead">Einzelne helle Slides setzen einen Kontrast, wie im Brand Book vorgesehen.</p>
+  </div>
+  <footer class="foot"><span class="left"></span><img src="logo-navy.png" alt="Schnatz"><span class="count">8/8</span></footer>
+</section>
+
+<script>
+const n = (location.hash || "#1").slice(1);
+document.querySelectorAll(".slide").forEach(s => s.classList.toggle("on", s.dataset.n === n));
+</script>
+</body>
+</html>
