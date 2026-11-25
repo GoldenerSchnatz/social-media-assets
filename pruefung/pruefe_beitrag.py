@@ -84,6 +84,12 @@ def pruefe(text, typ="linkedin"):
         if text.rstrip().endswith(f):
             hinweise.append(f"Reflex-Frage am Schluss: „{f}“")
 
+    if typ == "slide":
+        w = len(re.findall(r"[\wäöüÄÖÜß]+", text))
+        if w > R["slide_woerter"]:
+            befunde.append(f"{w} Wörter auf der Slide, höchstens {R['slide_woerter']}: Slide teilen")
+        if re.search(r"wisch weiter", text, re.I):
+            befunde.append("„Wisch weiter“ statt Versprechen-Zeile")
     if typ == "linkedin":
         n = len(text.strip()); lo, hi = R["linkedin_zeichen"]
         if not lo <= n <= hi:
