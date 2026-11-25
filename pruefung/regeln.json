@@ -1,0 +1,9 @@
+{
+  "stand": "2026-11-25",
+  "quelle": "Voice Standards, Rollen-Anweisung LinkedIn-Redakteur, Schreibstil-Skill von Stefan Schnatz",
+  "verbotene_woerter": ["revolutionieren", "revolutionär", "Gamechanger", "Game Changer", "Blueprint", "Mindset Shift", "Next Level", "nächste Level", "Life Hack", "transformieren", "transformativ", "bahnbrechend", "unfassbar", "ultimativ", "disruptiv", "360-Grad", "maßgeschneidert", "nahtlos", "tief eintauchen", "deine Reise", "in der heutigen schnelllebigen Welt"],
+  "verbotene_satzanfaenge": ["Stell dir vor", "Kennst du das", "Hast du dich schon einmal gefragt", "Die meisten machen den Fehler", "Die Wahrheit ist", "Fakt ist", "Hier ist der Punkt", "Das Problem ist:", "Was das für dich bedeutet", "In einer Welt, in der"],
+  "reflex_fragen": ["Was denkst du?", "Was meinst du?", "Stimmst du zu?", "Wer noch?", "Meinungen?", "Gedanken?", "Einverstanden?"],
+  "linkedin_zeichen": [900, 1300],
+  "erste_zeile_richtwert": 140
+}
