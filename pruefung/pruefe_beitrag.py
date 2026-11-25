@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Mechanische Prüfung eines Beitragsentwurfs nach den Regeln von Stefan Schnatz.
 
-Aufruf: python3 pruefe_beitrag.py entwurf.txt [--typ linkedin|caption|slide]
+Aufruf: python3 pruefe_beitrag.py entwurf.txt [--typ linkedin|caption|slide|kommentar|antwort]
 Gibt Befunde (Regelverstoß) und Hinweise (bitte prüfen) aus. Keine Punktzahl.
 Nur Standardbibliothek, kein Netzwerk, schreibt keine Dateien.
 """
@@ -64,7 +64,21 @@ def pruefe(text, typ="linkedin"):
     laengen = [len(s.split()) for s in saetze(text)]
     if len(laengen) >= 6 and statistics.pstdev(laengen) / statistics.mean(laengen) < 0.35:
         hinweise.append("Satzlängen sehr gleichförmig")
-    if not re.search(r"\d", text) and not re.search(ZAHLWORT, text, re.I):
+    if typ in ("kommentar", "antwort"):
+        start = text.strip()
+        for e in R["kommentar_einstiege"]:
+            if start.lower().startswith(e.lower()):
+                befunde.append(f"Floskel als Einstieg: „{e}“")
+        if start and (unicodedata.category(start[0]) == "So" or 0x1F300 <= ord(start[0]) <= 0x1FAFF):
+            befunde.append("Emoji als erstes Zeichen")
+        if re.match(r"^[A-ZÄÖÜ][\wäöüß-]+!", start):
+            befunde.append("Vorname mit Ausrufezeichen als Einstieg")
+        if typ == "kommentar":
+            n = len(re.findall(r"[.!?]+(?:\s|$)", start)) or 1
+            lo, hi = R["kommentar_saetze"]
+            if not lo <= n <= hi:
+                hinweise.append(f"{n} Sätze, Richtwert {lo} bis {hi}")
+    elif not re.search(r"\d", text) and not re.search(ZAHLWORT, text, re.I):
         hinweise.append("Keine Zahl im Text: Ist der Beitrag konkret genug?")
     for f in R["reflex_fragen"]:
         if text.rstrip().endswith(f):

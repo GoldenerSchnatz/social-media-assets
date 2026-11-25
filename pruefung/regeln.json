@@ -4,6 +4,8 @@
   "verbotene_woerter": ["revolutionieren", "revolutionär", "Gamechanger", "Game Changer", "Blueprint", "Mindset Shift", "Next Level", "nächste Level", "Life Hack", "transformieren", "transformativ", "bahnbrechend", "unfassbar", "ultimativ", "disruptiv", "360-Grad", "maßgeschneidert", "nahtlos", "tief eintauchen", "deine Reise", "in der heutigen schnelllebigen Welt"],
   "verbotene_satzanfaenge": ["Stell dir vor", "Kennst du das", "Hast du dich schon einmal gefragt", "Die meisten machen den Fehler", "Die Wahrheit ist", "Fakt ist", "Hier ist der Punkt", "Das Problem ist:", "Was das für dich bedeutet", "In einer Welt, in der"],
   "reflex_fragen": ["Was denkst du?", "Was meinst du?", "Stimmst du zu?", "Wer noch?", "Meinungen?", "Gedanken?", "Einverstanden?"],
+  "kommentar_einstiege": ["Starker Beitrag", "Toller Beitrag", "Super Beitrag", "Guter Beitrag", "Klasse Beitrag", "Spannender Beitrag", "Wichtiger Beitrag", "Danke fürs Teilen", "Danke für den Beitrag", "Sehr wahr", "So wahr", "Absolut", "Genau so", "Kann ich nur unterschreiben", "Volle Zustimmung", "Stimme voll zu", "Da bin ich ganz bei dir", "Auf den Punkt", "Das trifft es", "Liebe das", "Großartig"],
+  "kommentar_saetze": [2, 4],
   "linkedin_zeichen": [900, 1300],
   "erste_zeile_richtwert": 140
 }
