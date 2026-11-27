@@ -9,6 +9,8 @@
 @font-face{font-family:"Inter";font-weight:400;src:url("node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2") format("woff2")}
 @font-face{font-family:"Inter";font-weight:500;src:url("node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2") format("woff2")}
 @font-face{font-family:"Inter";font-weight:600;src:url("node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"Instrument Serif";font-weight:400;font-style:normal;src:url("node_modules/@fontsource/instrument-serif/files/instrument-serif-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Instrument Serif";font-weight:400;font-style:italic;src:url("node_modules/@fontsource/instrument-serif/files/instrument-serif-latin-400-italic.woff2") format("woff2")}
 :root{--navy:#081428;--surface:#14233D;--white:#fff;--magenta:#FF017B;--aqua:#3CC8D0;--cobalt:#2A2DC8;--mist:#F3F5F8;--stone:#5E6779}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:1080px;height:1350px;overflow:hidden;background:var(--navy)}
@@ -21,9 +23,13 @@ h2{font:600 84px/1.06 "Instrument Sans";letter-spacing:-.02em}
 p.lead{font:500 40px/1.38 "Inter";opacity:.88;margin-top:48px;max-width:820px}
 .hint{font:500 28px/1 "Inter";opacity:.62}
 /* Titelblatt: Versprechen-Zeile unter dem Hook, ersetzt „Wisch weiter“ (entschieden am 25.11.2026) */
-.promise{font:500 44px/1.25 "Inter";opacity:.92;margin-top:40px}
+.promise{font:italic 400 58px/1.18 "Instrument Serif";opacity:.95;margin-top:40px}
 .kpi{font:600 380px/.9 "Instrument Sans";letter-spacing:-.04em;color:var(--magenta)}
-.quote{font:600 76px/1.14 "Instrument Sans";letter-spacing:-.02em;text-align:center}
+.quote{font:italic 400 96px/1.12 "Instrument Serif";letter-spacing:-.005em;text-align:center}
+/* Instrument Serif (aufgenommen von Stefan am 27.11.2026): Zitat, Versprechen-Zeile, ein betontes Wort (.em), Quelle bei fremdem Material (.src) */
+.em{font-family:"Instrument Serif";font-style:italic;font-weight:400;letter-spacing:0;font-size:1.08em}
+.src{font:500 22px/1.2 "Inter";letter-spacing:.04em;opacity:.62;margin-top:auto;padding-bottom:28px}
+.fremd{flex:1;margin-top:40px;min-height:0;background:var(--mist) center/cover no-repeat;border:10px solid var(--white);box-shadow:0 18px 50px rgba(0,0,0,.35);transform:rotate(-1.5deg)}
 
 /* Pinselstrich in Industrial Magenta unter markierten Wörtern */
 .mark{position:relative;white-space:nowrap;z-index:0}
@@ -142,6 +148,27 @@ p.lead{font:500 40px/1.38 "Inter";opacity:.88;margin-top:48px;max-width:820px}
     <p class="lead">Einzelne helle Slides setzen einen Kontrast, wie im Brand Book vorgesehen.</p>
   </div>
   <footer class="foot"><span class="left"></span><img src="logo-navy.png" alt="Schnatz"><span class="count">8/8</span></footer>
+</section>
+
+<!-- A6 Betontes Wort in Serife -->
+<section class="slide" data-n="9">
+  <div class="body top">
+    <div class="label">Gedanke</div>
+    <h2>Mehr Umsatz ist nicht <span class="em">mehr Freiheit.</span></h2>
+    <p class="lead">Ein Wort oder eine Wortgruppe je Slide in Instrument Serif. Nie zusammen mit dem Pinselstrich.</p>
+  </div>
+  <footer class="foot"><span class="left"></span><img src="logo-weiss.png" alt="Schnatz"><span class="count">9/10</span></footer>
+</section>
+
+<!-- A7 Fremdes Material mit Quelle -->
+<section class="slide" data-n="10">
+  <div class="body top">
+    <div class="label">Medium · Datum</div>
+    <h2 class="quote" style="text-align:left;font-size:80px">»Schlagzeile oder Zitat aus dem Artikel.«</h2>
+    <div class="fremd" style="background-image:url('fremd.jpg')"></div>
+    <div class="src" style="margin-top:36px;padding-bottom:20px">Quelle: Medium, Datum</div>
+  </div>
+  <footer class="foot"><span class="left"></span><img src="logo-weiss.png" alt="Schnatz"><span class="count">10/10</span></footer>
 </section>
 
 <script>

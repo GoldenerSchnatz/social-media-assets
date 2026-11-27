@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Story-Vorlage Stefan Schnatz</title>
+<style>
+@font-face{font-family:"Instrument Sans";font-weight:600;src:url("node_modules/@fontsource/instrument-sans/files/instrument-sans-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-weight:500;src:url("node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-weight:600;src:url("node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"Instrument Serif";font-weight:400;font-style:italic;src:url("node_modules/@fontsource/instrument-serif/files/instrument-serif-latin-400-italic.woff2") format("woff2")}
+:root{--navy:#081428;--surface:#14233D;--white:#fff;--magenta:#FF017B;--aqua:#3CC8D0;--mist:#F3F5F8;--stone:#5E6779}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--navy)}
+/* Story 9:16. Oben 250 px und unten 340 px bleiben frei für die Instagram-Bedienflächen. */
+.story{position:relative;width:1080px;height:1920px;padding:250px 88px 340px;display:none;flex-direction:column;justify-content:center;color:var(--white);font-family:"Inter",sans-serif;isolation:isolate;
+ background:radial-gradient(110% 50% at 100% 0%,#16294f 0%,rgba(22,41,79,.45) 35%,rgba(8,20,40,0) 70%),var(--navy)}
+.story.on{display:flex}
+.light{background:var(--white);color:var(--navy)}
+.tag{align-self:flex-start;font:600 26px/1 "Inter";letter-spacing:.08em;text-transform:uppercase;background:var(--magenta);color:#fff;padding:14px 18px;border-radius:4px;margin-bottom:44px}
+h1{font:600 104px/1.04 "Instrument Sans";letter-spacing:-.02em}
+.serif{font:italic 400 92px/1.12 "Instrument Serif"}
+.em{font-family:"Instrument Serif";font-style:italic;font-weight:400;letter-spacing:0;font-size:1.08em}
+.lead{font:500 42px/1.38 "Inter";opacity:.88;margin-top:44px}
+.kpi{font:600 340px/.9 "Instrument Sans";letter-spacing:-.04em;color:var(--magenta)}
+.fremd{height:620px;margin:8px 0 40px;background:var(--mist) center/cover no-repeat;border:10px solid #fff;box-shadow:0 18px 50px rgba(0,0,0,.35);transform:rotate(-1.5deg)}
+.src{position:absolute;left:88px;bottom:360px;font:500 22px/1.2 "Inter";letter-spacing:.04em;opacity:.62}
+.photo .bg{position:absolute;inset:0;background:center/cover no-repeat;z-index:-2}
+.photo .shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,20,40,.25) 0%,rgba(8,20,40,.45) 45%,rgba(8,20,40,.92) 100%)}
+.end{justify-content:flex-end}
+</style>
+</head>
+<body>
+<!-- S1 Aussage: Label, Aussage, ein betontes Wort in Serife -->
+<section class="story" data-n="1">
+  <div class="tag">Gläserne Decke</div>
+  <h1>Mehr Umsatz ist nicht <span class="em">mehr Freiheit.</span></h1>
+  <p class="lead">Ein Gedanke je Story. Höchstens zwei kurze Sätze.</p>
+</section>
+<!-- S2 Zitat in Serife -->
+<section class="story" data-n="2">
+  <div class="tag">Zitat</div>
+  <div class="serif">»Das Leben beginnt nicht nach dem nächsten Umsatzziel.«</div>
+</section>
+<!-- S3 Zahl -->
+<section class="story" data-n="3">
+  <div class="tag">Beispiel</div>
+  <div class="kpi">x10</div>
+  <p class="lead">Platzhalter für eine belegte Zahl.</p>
+</section>
+<!-- S4 Kommentar zu fremdem Material, Quelle unten links -->
+<section class="story" data-n="4">
+  <div class="tag">Medium · Datum</div>
+  <div class="fremd" style="background-image:url('fremd.jpg')"></div>
+  <div class="serif" style="font-size:80px">»Schlagzeile oder Zitat.«</div>
+  <p class="lead">Stefans Kommentar in einem Satz.</p>
+  <div class="src">Quelle: Medium, Datum</div>
+</section>
+<!-- S5 Foto mit Overlay -->
+<section class="story photo end" data-n="5">
+  <div class="bg" style="background-image:url('foto_s.jpg')"></div><div class="shade"></div>
+  <div class="tag">Moment</div>
+  <h1>Text auf echtem <span class="em">Foto.</span></h1>
+</section>
+<!-- S6 Helle Story -->
+<section class="story light" data-n="6">
+  <div class="tag">Frage</div>
+  <div class="serif">Woran merkst du, dass dein Unternehmen ohne dich läuft?</div>
+  <p class="lead">Platz für den Fragen-Sticker darunter.</p>
+</section>
+<script>
+const n=(location.hash||"#1").slice(1);
+document.querySelectorAll(".story").forEach(s=>s.classList.toggle("on",s.dataset.n===n));
+</script>
+</body>
+</html>
