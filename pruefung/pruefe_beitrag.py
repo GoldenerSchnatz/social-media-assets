@@ -39,6 +39,20 @@ def pruefe(text, typ="linkedin"):
         for a in R["verbotene_satzanfaenge"]:
             if s.lower().startswith(a.lower()):
                 befunde.append(f"Verbotener Satzanfang: „{a}“")
+    for f in R.get("ki_floskeln", []):
+        if re.search(r"(?<!\w)" + re.escape(f), text, re.I):
+            befunde.append(f"KI-Floskel: „{f}“")
+    for f in R.get("ki_hinweise", []):
+        if f.lower() in text.lower():
+            hinweise.append(f"KI-typisches Muster, bitte prüfen: „{f.strip()}“")
+    if re.search(r"(?:^|\n|[.!] )(?:Der|Die|Das|Und|Mein|Sein|Ihr)?\s?[A-ZÄÖÜ][\wäöüß]{2,14}\?\s+[A-ZÄÖÜ]", text):
+        hinweise.append("Kurzfrage mit sofortiger Antwort („Das Ergebnis? …“): bitte prüfen")
+    if re.search(r"\bspiel\w*\b[^.!?\n]{0,40}\b(?:entscheidende|zentrale|wichtige|große) Rolle\b", text, re.I):
+        befunde.append("KI-Floskel: „spielt eine … Rolle“")
+    if re.search(r"\*\*|__|^#{1,3} |\[[A-ZÄÖÜ][\w ]{2,20}\]", text, re.M):
+        befunde.append("Markdown-Rest oder Platzhalter im Text")
+    if re.search(r"\b[Vv]on\b[^.!?\n]{3,40}\bbis (?:hin )?zu[rm]?\b", text):
+        hinweise.append("Scheinspanne „von … bis zu …“: bitte prüfen")
     befunde = list(dict.fromkeys(befunde))
 
     if re.search(r"\b[Nn]icht\b[^.!?\n]{0,90}[.,]\s*[Ss]ondern\b", text) or re.search(r"\bnicht nur\b[^.!?\n]{0,90}\bsondern\b", text, re.I):
