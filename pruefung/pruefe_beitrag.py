@@ -92,11 +92,18 @@ def pruefe(text, typ="linkedin"):
             befunde.append("„Wisch weiter“ statt Versprechen-Zeile")
     if typ == "linkedin":
         n = len(text.strip()); lo, hi = R["linkedin_zeichen"]
-        if not lo <= n <= hi:
+        if n > R["linkedin_obergrenze"]:
+            hinweise.append(f"{n} Zeichen, Obergrenze {R['linkedin_obergrenze']}: kürzen oder als Artikel prüfen")
+        elif not lo <= n <= hi:
             hinweise.append(f"{n} Zeichen, Zielbereich {lo} bis {hi}")
+        alo, ahi = R["linkedin_absaetze"]
+        if n >= lo and not alo <= len(absaetze) <= ahi:
+            hinweise.append(f"{len(absaetze)} Absätze, Richtwert {alo} bis {ahi}")
         erste = next((z.strip() for z in zeilen if z.strip()), "")
         if erste.endswith("?"):
             befunde.append("Erste Zeile ist eine Frage")
+        if erste[:1] in "„\"»“‚'":
+            befunde.append("Erste Zeile ist ein Zitat: Zitat in Zeile 2, Zeile 1 ist die eigene Aussage")
         if len(erste) > R["erste_zeile_richtwert"]:
             hinweise.append(f"Erste Zeile hat {len(erste)} Zeichen, Richtwert {R['erste_zeile_richtwert']}")
     return befunde, hinweise

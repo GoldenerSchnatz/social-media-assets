@@ -1,6 +1,6 @@
 # Mechanische Prüfung für Beitragsentwürfe
 
-Stand: 25.11.2026. Eigene Prüfung nach den Regeln von Stefan Schnatz (Voice Standards, Rollen-Anweisung LinkedIn-Redakteur). Angeregt durch den Humanizer des Open-Source-Projekts linkedin-agent-skill, aber neu geschrieben: auf Deutsch, ohne Punktzahl, ohne Umwandlung von Anführungszeichen.
+Stand: 27.11.2026 (Grenzwerte LinkedIn: 700 bis 1.300 Zeichen, Obergrenze 1.500, 6 bis 9 Absätze, erste Zeile bis 60 Zeichen und kein Zitat). Eigene Prüfung nach den Regeln von Stefan Schnatz (Voice Standards, Rollen-Anweisung LinkedIn-Redakteur). Angeregt durch den Humanizer des Open-Source-Projekts linkedin-agent-skill, aber neu geschrieben: auf Deutsch, ohne Punktzahl, ohne Umwandlung von Anführungszeichen.
 
 ```
 python3 pruefe_beitrag.py entwurf.txt --typ linkedin
